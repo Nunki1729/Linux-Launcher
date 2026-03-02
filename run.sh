@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GAME_PATH="PUT THE LOCATION OF YOUR FILE, FOR EXAMPLE: /home/user_name/applications/my_application"
+APP_PATH="PUT THE LOCATION OF YOUR FILE, FOR EXAMPLE: /home/user_name/applications/my_application"
 PORT=8000
 
 # Create a temporal folder for the porfile
@@ -9,7 +9,7 @@ PROFILE_DIR="/tmp/my_application-profile"
 mkdir -p "$PROFILE_DIR"
 
 # Run HTTP server in the background and hide the output
-python3 -m http.server $PORT --directory "$GAME_PATH" >/dev/null 2>&1 &
+python3 -m http.server $PORT --directory "$APP_PATH" >/dev/null 2>&1 &
 SERVER_PID=$!
 echo "Servidor Python iniciado con PID $SERVER_PID"
 
