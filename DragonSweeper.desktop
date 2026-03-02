@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=DragonSweeper
+Comment=Juego DragonSweeper
+Exec=/home/nunki/Aplicaciones/dragonsweeper/run.sh
+Icon=/home/nunki/Aplicaciones/dragonsweeper/icon.png
+Terminal=false
+Categories=Game;
