@@ -4,8 +4,7 @@ APP_PATH="PUT THE LOCATION OF YOUR FILE, FOR EXAMPLE: /home/user_name/applicatio
 PORT=8000
 
 # Create a temporal folder for the porfile
-# Here you should change the name of the file which will be created, but now is also OK
-PROFILE_DIR="/tmp/my_application-profile"
+PROFILE_DIR="/tmp/temp_html_app_folder"
 mkdir -p "$PROFILE_DIR"
 
 # Run HTTP server in the background and hide the output
