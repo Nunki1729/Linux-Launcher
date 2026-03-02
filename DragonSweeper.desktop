@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
-Name=DragonSweeper
-Comment=Juego DragonSweeper
-Exec=/home/nunki/Aplicaciones/dragonsweeper/run.sh
-Icon=/home/nunki/Aplicaciones/dragonsweeper/icon.png
+Name=YOUR_APPLICATION_NAME
+Comment=THE_TYPE_OF_APPLICATION
+Exec=WHERE IS LOCATED THE FILE run.sh IT SOULD BE SOMETHING LIKE /home/user/applications/my_application/run.sh
+Icon=WHERE IS LOCATED THE ICON, IT SOULD BE SOMETHING LIKE/home/nunki/Aplicaciones/dragonsweeper/icon.png
 Terminal=false
-Categories=Game;
+Categories=THE USE OF MY APP, IT SHOULD BE SOMETHING LIKE game; ActionGame;
