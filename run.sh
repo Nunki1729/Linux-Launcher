@@ -1,34 +1,31 @@
 #!/bin/bash
-# Script para abrir DragonSweeper como app en Linux
-# Con perfil temporal exclusivo de Firefox
-# Cierra automáticamente el servidor al cerrar la ventana del juego
 
-GAME_PATH="$HOME/Aplicaciones/dragonsweeper"
+GAME_PATH="PUT THE LOCATION OF YOUR FILE, FOR EXAMPLE: /home/user_name/applications/my_application"
 PORT=8000
 
-# Crear carpeta para perfil temporal (si no existe)
-PROFILE_DIR="/tmp/dragonsweeper-profile"
+# Create a temporal folder for the porfile
+# Here you should change the name of the file which will be created, but now is also OK
+PROFILE_DIR="/tmp/my_application-profile"
 mkdir -p "$PROFILE_DIR"
 
-# Lanzar servidor HTTP en background y ocultar salida
+# Run HTTP server in the background and hide the output
 python3 -m http.server $PORT --directory "$GAME_PATH" >/dev/null 2>&1 &
 SERVER_PID=$!
 echo "Servidor Python iniciado con PID $SERVER_PID"
 
-# Lanzar Firefox con perfil temporal exclusivo en modo app
-# --no-remote asegura que sea un proceso independiente
+# Launch Firefox with a temporary, exclusive profile in app mode
 firefox --no-remote --profile "$PROFILE_DIR" --new-window --app="http://localhost:$PORT" >/dev/null 2>&1 &
 FIREFOX_PID=$!
 echo "Firefox lanzado con PID $FIREFOX_PID"
 
-# Esperar a que se cierre la ventana del juego
+# Wait for the game window to close
 while kill -0 $FIREFOX_PID 2>/dev/null; do
     sleep 1
 done
 
-# Al cerrar Firefox, cerrar el servidor Python
+# When Firefox closes, shut down the Python server
 kill $SERVER_PID 2>/dev/null
 echo "Servidor Python detenido"
 
-# Limpiar perfil temporal
+# Clean up temporary profile
 rm -rf "$PROFILE_DIR"
